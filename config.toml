@@ -1,118 +1,99 @@
-baseURL                          = "http://www.matteo.codes/"   # Your domain name. Must end with "/"
-theme                            = "introduction"
-DefaultContentLanguage           = "en"                    # Default language for multilingual sites
-# disqusshortname                 = ""                     # https://gohugo.io/content-management/comments
-# googleAnalytics                 = ""                     # https://gohugo.io/templates/internal/#google-analytics
+title = "Matteo"
+baseURL = "https://www.matteo.codes"
+languageCode = "it"
+theme = "osprey-delight"
+tags = ["personal", "homepage", "portfolio"]
+# canonifyURLS = true
+# googleAnalytics = ""
+disableKinds = ["taxonomy", "taxonomyTerm"] # This theme does not currently use "tag" and "category" taxonomies
+enableEmoji = true
+pygmentsUseClasses = true
 
-[params]
-    themeStyle                   = "auto"                  # Choose "light" or "dark" or "auto"
-    favicon                      = "/img/fav.ico"          # Path to favicon file
-    showRSSButton                = false                   # Show rss button in navigation
-    fadeIn                       = true                    # Turn on/off the fade-in effect
-    fadeInIndex                  = false                   # Turn on/off the fade-in effect on the index page even if fade-in was otherwise turned off
-    dateFormat                   = "Jan 2, 2006"
-    email                        = "youremail@email.com"   # E-mail address for contact section
-    # customCSS                  = ["foo.css"]             # Include custom css files placed under assets/
-    # customJS                   = ["foo.js"]              # Include custom JavaScript files placed under assets/
-    # plausible                  = true                    # Use Plausible analytics (requires an account at Plausible.io)
+ignoreErrors = ["error-remote-getjson"]
 
-    # Configure the home page
-    [params.home]
-        introHeight              = "fullheight"            # Input either "medium" or "large" or "fullheight"
-        showLatest               = true                    # Show latest blog post summary
-        showAllPosts             = false                   # Set true to list all posts on home page, or set false to link to separate blog list page
-        allPostsArchiveFormat    = true                    # show all posts in an archive format
-        numberOfProjectsToShow   = 3                       # Maximum number of projects to show on home page. Unset or comment out to show all projects
-        localTime                = true                    # Show your current local time in contact section
-        timeZone                 = "America/Los_Angeles"   # Your timezone as in the TZ* column of this list: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-        timeFormat               = "en-US"                 # Language specific format to use
-    [params.projects]
-        useTwoColumns            = false                   # Use a layout with two columns instead of three
+## Generic theme parameters:
+[Params]
+  author = "matteo marjanovic"
+  email = "matteomarjanovic@gmail.com"
+  description = "osprey-delight example site"
+  tagline = "Questo &egrave; il mio portfolio."
+  logoBig = "/images/osprey-delight-logo.png"
+  # [str] This is the logo that will be shown in the left corner of the nav bar.
+  #   Usually, you would like to use something bigger than a favicon - but not too big either.
+  #   Make sure that the image does not overlay the nav links. Don't be afraid of experimenting! 
+  logoSmall = "favicon.png"
+  favicon = "favicon.png"
+  opengraphImage = "/images/osprey-delight.png"
+  googleTagManager = ""
+  # [bool] The following will enforce redirection to the baseURL for all sub-directories/-pages.
+  #   Example: If you create about.md, Hugo will also create a '/about/index.html'.
+  #   This file will contain only a redirect directive if this switch is enabled.
+  #   Make sure that you do not enable this switch if you also set useBlog to true. 
+  enforceSinglePage = false
+  # [bool] Will generate copyright notice in footer for your site.
+  copyright = true
+  # [bool] Your credit is much appreciated. It will be displayed in a small way in your footer.
+  #   Anyways, of course you're free to uncomment the following line to disable the credit.
+  # credit = false
 
-    # Share buttons on blog post pages
-    [params.share]
-        twitter                  = true
-        facebook                 = true
-        googlePlus               = true
-        pinterest                = true
-
-    # Social icons appear in introduction and contact section. Add as many more as you like.
-    # Icon pack "fab" includes social network icons, see: https://fontawesome.com/icons?d=gallery&s=brands&m=free
-    # Icon pack "fas" includes solid style icons, see: https://fontawesome.com/icons?d=gallery&s=solid&m=free
-    [[params.social]]
-        url   = "https://twitter.com/"
-        icon  = "twitter" # icon name without the 'fa-'
-        icon_pack = "fab"
-    [[params.social]]
-        url   = "https://facebook.com/"
-        icon  = "facebook-f" # icon name without the 'fa-'
-        icon_pack = "fab"
-    [[params.social]]
-        url   = "https://linkedin.com/"
-        icon  = "linkedin-in" # icon name without the 'fa-'
-        icon_pack = "fab"
-    [[params.social]]
-        url = "mailto:youremail@email.com"  # For a direct email link, use "mailto:test@example.org".
-        icon = "paper-plane" # icon name without the 'fa-'
-        icon_pack = "fas"
-    [[params.social]]
-        url   = "https://mastodon.social/"
-        icon  = "mastodon" # icon name without the 'fa-'
-        icon_pack = "fab"
-        html_attributes = "rel=\"me\"" # Add rel attribute for Mastodon profile link verification
+## Social media links in footer:
+[Params.Social]
+  # [str] Link to your Twitter.
+  twitter = "https://twitter.com/matteomarj"
+  # [str] Link to your LinkedIn.
+  linkedin = "https://www.linkedin.com/in/matteo-marjanovic-629713146/"
+  # [str] Link to your GitHub.
+  github = "https://github.com/parolaccia"
+  # [str] Link to your Facebook.
+  # facebook = ""
+  # [str] Link to your Instagram.
+  instagram = "https://www.instagram.com/matteomarjanovic/"
+  # [str] Link to your StackOverflow.
+  # stackoverflow = ""
 
 
-# If you don't want to use the default menu, you can define one by yourself
-# [[menu.main]]
-#     name    = "Home"
-#     url     = "/"
-#     weight  = 0
-# [[menu.main]]
-#     name    = "Blog"
-#     url     = "/blog/"
-#     weight  = 1
+## Theme features:
+[Params.Feat]
+  # [bool] Termynal (https://github.com/ines/termynal) is a small JS library for showing a terminal "animation" from within your gallery item.
+  #   The library has been stripped-down to a minimum to only have the necessary functionality.
+  useTermynal = true
+  # [bool] Lazy loading of images with lazysizes (SEO-friendly).
+  lazyloading = true
+  # [str] Use Basin contact form.
+  ajaxBasin = "https://usebasin.com/f/{YOUR-12-CHAR-FORM-KEY-HERE}"
+  googleTagManager = ""
+  # [bool] Enable usage of your own 'assets/scss/_custom.css'.
+  customCSS = false
+  # [bool] Use structured data for your own https://schema.org/Person (SEO-friendly).
+  #   The theme attempts to "guess" your information by using the information you give it in the configuration.
+  #   For more specific usage, you can override the JSON-LD by supplying your own 'person.json' under 'assets/'
+  structuredData = true
+  # [str] Tell your GitHub username so that the GitHub API is used to fetch more information for structured data.
+  #   This will use information that is publically available about your GitHub user profile at https://api.github.com/users/{USERNAME}.
+  # structuredDataFromGithub = "USERNAME"
+  # [bool] Enable the optional blog module
+  useBlog = true
 
-# We only use tag as a taxonomies
-# You can add more by yourself
-[taxonomies]
-  tag = "tags"
-  series = "series"
+## Configure contact form:
+[Params.Contact]
+  # [str[]] i18n keys used to display in an additional select box.
+  #   Comment out if you want to disable it.
+  select = ["generic", "coop", "business", "project"]
 
-[markup]
-  defaultMarkdownHandler = "goldmark"
-  [markup.goldmark]
-  [markup.goldmark.renderer]
-    unsafe = true
-  [markup.highlight]
-    codeFences = true
-    guessSyntax = false
-    hl_Lines = ""
-    lineNoStart = 1
-    lineNos = false
-    lineNumbersInTable = true
-    noClasses = true
-    # For styles, see https://xyproto.github.io/splash/docs/longer/all.html
-    style = "friendly"
-    tabWidth = 4
 
-[languages]
-    [languages.en]
-        languageName     = "English"
-        languageCode     = "en-us"
-        contentDir       = "content/en"
-        weight           = 0
-        title            = "Matteo Marjanovic"
-        [languages.en.params]
-            description  = "Website Description"   # Max 160 characters show in search results
-            # footerText   = ""                      # Text to override default footer text (markdown allowed)
-
-    [languages.it]
-        languageName     = "Italiano"
-        languageCode     = "it"
-        contentDir       = "content/it"
-        weight           = 1
-        title            = "Matteo Marjanovic"
-        [languages.de.params]
-            dateFormat   = "2 January 2006"
-            description  = "Il mio portfolio personale."
-            # footerText   = ""
+[[menu.main]]
+  name = "Chi sono"
+  url  = "/#about"
+  weight = 1
+[[menu.main]]
+  name = "Studi"
+  url  = "/#work"
+  weight = 2
+[[menu.main]]
+  name = "Progetti"
+  url  = "/#blog"
+  weight = 3
+[[menu.main]]
+  name = "Contatti"
+  url  = "/#contact"
+  weight = 4
